@@ -1,0 +1,63 @@
+2025-05-24 06:38:29,999 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:38:30,000 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:38:30,000 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 2, retry 1)
+2025-05-24 06:38:30,000 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:38:30,001 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 3, retry 0)
+2025-05-24 06:38:30,002 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with deepseek after 3 attempts
+2025-05-24 06:38:30,003 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:38:30,003 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 429
+2025-05-24 06:38:30,003 - ii_agent_mcp_mvp.fallback.handler - WARNING - Rate limit detected for gemini, moving to next provider
+2025-05-24 06:38:30,004 - ii_agent_mcp_mvp.fallback.handler - WARNING - Provider deepseek approaching rate limit (2 remaining), trying next provider
+2025-05-24 06:38:30,004 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 3, retry 0)
+2025-05-24 06:38:30,004 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with mistral after 3 attempts
+1969-12-31 19:00:00,000 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:40:37,849 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:40:37,849 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:40:37,849 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 2, retry 1)
+2025-05-24 06:40:37,849 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:40:37,851 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 3, retry 0)
+2025-05-24 06:40:37,851 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with deepseek after 3 attempts
+2025-05-24 06:40:37,853 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:40:37,853 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 429
+2025-05-24 06:40:37,853 - ii_agent_mcp_mvp.fallback.handler - WARNING - Rate limit detected for gemini, moving to next provider
+2025-05-24 06:40:37,853 - ii_agent_mcp_mvp.fallback.handler - WARNING - Provider deepseek approaching rate limit (2 remaining), trying next provider
+2025-05-24 06:40:37,854 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 3, retry 0)
+2025-05-24 06:40:37,854 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with mistral after 3 attempts
+2025-05-24 06:40:37,857 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:40:37,857 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:40:37,857 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 2, retry 1)
+2025-05-24 06:40:37,857 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:40:37,858 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 3, retry 0)
+2025-05-24 06:40:37,858 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with deepseek: API Error: 500
+2025-05-24 06:40:37,858 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 4, retry 1)
+2025-05-24 06:40:37,858 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with deepseek: API Error: 500
+2025-05-24 06:40:37,860 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 5, retry 0)
+2025-05-24 06:40:37,860 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with mistral: API Error: 500
+2025-05-24 06:40:37,860 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 6, retry 1)
+2025-05-24 06:40:37,860 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with mistral: API Error: 500
+2025-05-24 06:40:37,860 - ii_agent_mcp_mvp.fallback.handler - ERROR - All providers failed after 6 attempts
+2025-05-24 06:41:10,464 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:41:10,464 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:41:10,464 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 2, retry 1)
+2025-05-24 06:41:10,465 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:41:10,466 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 3, retry 0)
+2025-05-24 06:41:10,466 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with deepseek after 3 attempts
+2025-05-24 06:41:10,468 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:41:10,468 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 429
+2025-05-24 06:41:10,468 - ii_agent_mcp_mvp.fallback.handler - WARNING - Rate limit detected for gemini, moving to next provider
+2025-05-24 06:41:10,469 - ii_agent_mcp_mvp.fallback.handler - WARNING - Provider deepseek approaching rate limit (2 remaining), trying next provider
+2025-05-24 06:41:10,469 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 3, retry 0)
+2025-05-24 06:41:10,469 - ii_agent_mcp_mvp.fallback.handler - INFO - Generation successful with mistral after 3 attempts
+2025-05-24 06:41:10,472 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 1, retry 0)
+2025-05-24 06:41:10,472 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:41:10,472 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with gemini (attempt 2, retry 1)
+2025-05-24 06:41:10,472 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with gemini: API Error: 500
+2025-05-24 06:41:10,473 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 3, retry 0)
+2025-05-24 06:41:10,473 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with deepseek: API Error: 500
+2025-05-24 06:41:10,473 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with deepseek (attempt 4, retry 1)
+2025-05-24 06:41:10,473 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with deepseek: API Error: 500
+2025-05-24 06:41:10,474 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 5, retry 0)
+2025-05-24 06:41:10,474 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with mistral: API Error: 500
+2025-05-24 06:41:10,474 - ii_agent_mcp_mvp.fallback.handler - INFO - Attempting generation with mistral (attempt 6, retry 1)
+2025-05-24 06:41:10,474 - ii_agent_mcp_mvp.fallback.handler - ERROR - Generation failed with mistral: API Error: 500
+2025-05-24 06:41:10,474 - ii_agent_mcp_mvp.fallback.handler - ERROR - All providers failed after 6 attempts

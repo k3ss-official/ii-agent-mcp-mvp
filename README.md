@@ -1,131 +1,98 @@
-# MCP API Key Manager
+# II-Agent MCP Server Add-On
 
-A secure Python utility for managing API keys for the MCP server. This tool securely encrypts and stores API keys for Gemini, DeepSeek, and Mistral services.
+A Multi-Cloud Provider (MCP) server add-on for II-Agent, providing a unified interface to multiple AI model providers (Gemini, DeepSeek, Mistral) with automated configuration and fallback logic.
+
+## Overview
+
+This project creates an AI-centric "universal connector" that bridges multiple API providers to II-Agent. It handles rate limits, provides fallback mechanisms, and offers a consistent interface regardless of the underlying AI provider.
 
 ## Features
 
-- Password-based encryption using PBKDF2 key derivation
-- Fernet symmetric encryption for API keys
-- API key validation with test requests
-- Secure storage with proper file permissions
-- Decryption functionality for retrieving keys
+- **Multi-Provider Support**: Seamlessly integrates with Gemini, DeepSeek, and Mistral APIs
+- **Automated Configuration**: Discovers available models and configures endpoints automatically
+- **Robust Fallback Logic**: Automatically falls back to alternative providers on errors, rate limits, or timeouts
+- **Monitoring and Logging**: Tracks request metrics and provides detailed logs
+- **Secure API Key Handling**: Uses the included [API Key Manager](./api_key_manager/README.md) for secure credential storage
 
-## Requirements
+## Repository Structure
 
-- Python 3.6+
-- Required packages:
-  - cryptography
-  - pyyaml
-  - requests
+```
+ii_agent_mcp_mvp/
+├── main.py                # Main FastAPI server implementation
+├── config.py              # Configuration handling
+├── security.py            # Security utilities
+├── setup.py               # Package setup script
+├── requirements.txt       # Dependencies
+├── providers.yaml         # Sample provider configuration
+├── ii_agent_integration.md # II-Agent integration guide
+├── api_key_manager/       # Secure API key management utility
+│   ├── key_manager.py     # API key encryption/decryption tool
+│   ├── README.md          # API Key Manager documentation
+│   └── ...
+├── providers/             # Provider implementations
+│   ├── base.py            # Base provider class
+│   ├── gemini.py          # Gemini provider
+│   ├── deepseek.py        # DeepSeek provider
+│   ├── mistral.py         # Mistral provider
+│   └── factory.py         # Provider factory
+├── fallback/              # Fallback logic
+│   └── handler.py         # Fallback handler
+├── utils/                 # Utility functions
+│   └── logging.py         # Logging utilities
+├── tests/                 # Test suite
+│   ├── test_providers.py  # Provider tests
+│   ├── test_fallback.py   # Fallback tests
+│   └── ...
+└── docs/                  # Documentation
+    ├── technical_design.md # Technical design document
+    ├── developer_guide.md # Developer guide
+    └── user_guide.md      # User guide
+```
 
 ## Installation
 
 1. Ensure you're in the correct Conda environment:
    ```bash
-   conda activate ii-agent-mcp-mvp
+   conda activate ii_agent_mcp_mvp
    ```
 
-2. Install required packages:
+2. Install the package:
    ```bash
-   pip install --force-reinstall --no-cache-dir cryptography pyyaml requests
+   pip install --force-reinstall --no-cache-dir -e .
    ```
 
-3. Clone the repository (if not already done):
+## Configuration
+
+1. Set up API keys using the API Key Manager:
    ```bash
-   git clone https://github.com/your-username/ii-agent-mcp-mvp.git
-   cd ii-agent-mcp-mvp
+   cd api_key_manager
+   python key_manager.py setup
    ```
 
-## Usage
+2. Start the MCP server:
+   ```bash
+   python main.py
+   ```
 
-### Setting Up API Keys
+## API Endpoints
 
-To set up and encrypt your API keys:
+- **POST /generate**: Generate text from a prompt using available providers
+- **GET /status**: Get server status and request metrics
 
-```bash
-python key_manager.py setup
-```
+## II-Agent Integration
 
-This will:
-1. Prompt you for a strong password (minimum 12 characters)
-2. Derive an encryption key using PBKDF2
-3. Store the salt in `encryption_key.bin` with restricted permissions (600)
-4. Prompt for Gemini, DeepSeek, and Mistral API keys
-5. Validate each API key with a test request
-6. Encrypt and store the keys in `providers.yaml` with restricted permissions (600)
+See [II-Agent Integration Guide](ii_agent_integration.md) for detailed instructions on integrating with II-Agent.
 
-### Retrieving API Keys
+## API Key Management
 
-To decrypt and view your stored API keys:
+This repository includes a secure API Key Manager utility for handling provider credentials. See the [API Key Manager README](./api_key_manager/README.md) for details.
 
-```bash
-python key_manager.py decrypt
-```
+## Documentation
 
-This will:
-1. Prompt for your encryption password
-2. Decrypt the stored API keys
-3. Display the keys with partial masking for security
-
-### Using in Your Application
-
-To use the decryption function in your application:
-
-```python
-from key_manager import derive_key_from_password, load_encryption_materials, decrypt_providers_yaml
-
-# Load encryption materials and derive key
-salt = load_encryption_materials()
-password = getpass.getpass("Enter your encryption password: ")
-key, _ = derive_key_from_password(password, salt)
-
-# Decrypt API keys
-api_keys = decrypt_providers_yaml(key)
-
-# Use the API keys in your application
-gemini_key = api_keys.get("gemini", "")
-deepseek_key = api_keys.get("deepseek", "")
-mistral_key = api_keys.get("mistral", "")
-```
-
-## Security Notes
-
-- The encryption password is never stored and must be provided by the user when decrypting
-- API keys are encrypted using Fernet symmetric encryption (AES-128-CBC with HMAC-SHA256)
-- The encryption key is derived using PBKDF2 with 100,000 iterations
-- Files containing sensitive information have restricted permissions (600)
-- API keys are validated before storage to ensure they are functional
-
-## Backup Recommendations
-
-It is crucial to maintain secure backups of:
-
-1. Your encryption password (store in a password manager)
-2. The `encryption_key.bin` file (contains the salt for key derivation)
-3. The `providers.yaml` file (contains the encrypted API keys)
-
-**IMPORTANT**: If you lose your encryption password or the `encryption_key.bin` file, you will not be able to recover your stored API keys.
-
-## File Locations
-
-- `key_manager.py`: The main script
-- `encryption_key.bin`: Contains the salt for key derivation (created during setup)
-- `providers.yaml`: Contains the encrypted API keys (created during setup)
-- `key_manager.log`: Log file for operations and errors
-
-## Troubleshooting
-
-If you encounter issues:
-
-1. Check the `key_manager.log` file for error messages
-2. Ensure you're using the correct password
-3. Verify that the `encryption_key.bin` and `providers.yaml` files exist and have not been corrupted
-4. If API validation fails, check your internet connection and the validity of your API keys
+- [Technical Design Document](./docs/technical_design.md)
+- [Developer Guide](./docs/developer_guide.md)
+- [User Guide](./docs/user_guide.md)
 
 ## License
 
-[Specify license information here]
-
-## Contributing
-
-[Specify contribution guidelines here]
+MIT License
